@@ -9,19 +9,19 @@ def englishToFrench():
     textToTranslate = request.args.get('textToTranslate')
     # Write your code here
     ret = translator.englishToFrench(textToTranslate)
-    return "Translated text to French"
+    return "Translated text to French as " + ret
 
 @app.route("/frenchToEnglish")
 def frenchToEnglish():
     textToTranslate = request.args.get('textToTranslate')
     # Write your code here
     ret = translator.frenchToEnglish(textToTranslate)
-    return "Translated text to English"
+    return "Translated text to English as " + ret
 
 @app.route("/")
 def renderIndexPage():
     # Write the code to render template
-    render_template("index.html")
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080)
